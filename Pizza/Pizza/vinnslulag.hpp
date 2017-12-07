@@ -16,4 +16,8 @@ void skra_voru(vara afhending) {
     vista_voru(afhending);
 }
 
+vector<vara> fa_allar_vorur() {
+    return lesa_allar_vorur();
+}
+
 #endif /* VINNSLULAG_H */

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+using namespace std;
 #include "gagnaklasar.hpp"
 #include "vinnslulag.hpp"
 
@@ -16,15 +17,15 @@ int main(int argc, const char * argv[]) {
     vara vara_innan_lykkju;
     
     if(1 == argc) {
-        std::cout << "Vantar skipun.\n";
+        cout << "Vantar skipun.\n";
         return 1;
     }
     
     if(0 == strncmp("vara", argv[1], 4)) {
-        std::string line;
-        while(std::getline(std::cin, line)) {
-            std::stringstream straumur(line);
-            std::string nafn, verd_strengur;
+        string line;
+        while(getline(cin, line)) {
+            stringstream straumur(line);
+            string nafn, verd_strengur;
             int verd;
             straumur >> nafn >> verd;
             vara_innan_lykkju.nafn = nafn;
@@ -35,9 +36,21 @@ int main(int argc, const char * argv[]) {
         return 0;
     }
     else if (0 == strncmp("panta", argv[1], 5)) {
+        vector<vara> vorur = fa_allar_vorur();
+        int vorunumer = 1;
+        for (auto valmoguleiki : vorur) {
+            cout << "[" << vorunumer++ << "] " << valmoguleiki.nafn << " kostar " << valmoguleiki.verd << "kr." << endl;
+        }
+        cerr << "Hvaða vöru má bjóða þér?" << endl;
+        cerr << "Sláðu inn vörunúmer (og ýttu á enter): ";
+        unsigned int val;
+        cin >> val;
+        cerr << "Þú valdir: " << val << endl;
+        vara valin_vara = vorur[val-1];
+        cerr << valin_vara.nafn << endl;
         return 0;
     }
     
-    std::cout << "Skipun óþekkt.\n";
+    cout << "Skipun óþekkt.\n";
     return 2;
 }
