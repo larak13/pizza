@@ -14,5 +14,8 @@ int main(int argc, const char * argv[]) {
     if(1 == argc) {
         std::cout << "Vantar skipun.\n";
     }
+    
+    
+    std::cout << "Skipun óþekkt.\n";
     return 0;
 }
