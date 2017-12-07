@@ -1,4 +1,5 @@
 echo -n >vorur.txt
+echo -n >pantanir.txt
 ./Pizza
 ./Pizza bull
 
@@ -6,3 +7,5 @@ echo -n >vorur.txt
 cat <vorur.txt
 
 ./Pizza panta
+
+cat <pantanir.txt

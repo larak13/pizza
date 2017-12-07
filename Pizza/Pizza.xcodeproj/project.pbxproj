@@ -28,6 +28,7 @@
 		2AB6A76F1FD9CB5C00842201 /* gagnaklasar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = gagnaklasar.hpp; sourceTree = "<group>"; };
 		2AB6A7701FD9D13B00842201 /* vinnslulag.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vinnslulag.hpp; sourceTree = "<group>"; };
 		2AB6A7711FD9D21900842201 /* gagnalag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gagnalag.h; sourceTree = "<group>"; };
+		2AB6A7721FD9EB4300842201 /* lykkjur.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = lykkjur.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 				2AB6A7681FD9BFB700842201 /* main.cpp */,
 				2AB6A7711FD9D21900842201 /* gagnalag.h */,
 				2AB6A7701FD9D13B00842201 /* vinnslulag.hpp */,
+				2AB6A7721FD9EB4300842201 /* lykkjur.hpp */,
 				2AB6A76F1FD9CB5C00842201 /* gagnaklasar.hpp */,
 			);
 			path = Pizza;

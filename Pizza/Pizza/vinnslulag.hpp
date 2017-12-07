@@ -20,4 +20,9 @@ vector<vara> fa_allar_vorur() {
     return lesa_allar_vorur();
 }
 
+void panta(pontun pontun) {
+    vista_pontun(pontun);	
+}
+
+
 #endif /* VINNSLULAG_H */
