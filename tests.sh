@@ -1,3 +1,8 @@
+echo -n >vorur.txt
 ./Pizza
 ./Pizza bull
-./Pizza skra <~/Documents/GitHub/pizza/skra.tsv
+
+./Pizza vara <~/Documents/GitHub/pizza/skra.tsv
+cat <vorur.txt
+
+./Pizza panta
