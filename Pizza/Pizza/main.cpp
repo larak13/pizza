@@ -34,7 +34,9 @@ int main(int argc, const char * argv[]) {
         
         return 0;
     }
-
+    else if (0 == strncmp("panta", argv[1], 5)) {
+        return 0;
+    }
     
     std::cout << "Skipun óþekkt.\n";
     return 2;
