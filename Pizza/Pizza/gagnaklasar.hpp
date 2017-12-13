@@ -17,6 +17,8 @@ struct vidskiptavinur {
 };
 
 struct pontun {
+    string numer;
+    string stada;
     vector<vara> vorur;
     vidskiptavinur vidskiptavinur;
 };

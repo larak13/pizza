@@ -4,8 +4,9 @@ echo -n >pantanir.txt
 ./Pizza bull
 
 ./Pizza vara <~/Documents/GitHub/pizza/skra.tsv
-cat <vorur.txt
 
-./Pizza panta
+./Pizza panta; echo
 
-cat <pantanir.txt
+./Pizza byrjuð; echo
+
+./Pizza pantanir; echo

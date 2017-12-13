@@ -24,13 +24,27 @@ void vista_voru(vara afhending) {
     return;
 }
 
+bool vorur_lesnar = false;
 vector<vara> vorur = vector<vara>();
 
 void baeta_vid_voru_i_vorur(vara vara) {
     vorur.push_back(vara);
 }
 
+bool pantanir_lesnar = false;
+vector<pontun> pantanir = vector<pontun>();
+
+void baeta_vid_pontun_i_pantanir(pontun pontun) {
+    pantanir.push_back(pontun);
+}
+
 vector<vara> lesa_allar_vorur() {
+    if(vorur_lesnar) {
+        return vorur;
+    }
+    else {
+        vorur_lesnar = true;
+    }
     ifstream myfile;
     myfile.open("vorur.txt");
     lesa_vorur(myfile, baeta_vid_voru_i_vorur);
@@ -40,13 +54,40 @@ vector<vara> lesa_allar_vorur() {
 
 void vista_pontun(pontun pontun) {
     vidskiptavinur kunni = pontun.vidskiptavinur;
-    vara vara = pontun.vorur[0];
     ofstream myfile;
     myfile.open ("pantanir.txt", ios::app);
-    myfile << kunni.nafn << "\t" << kunni.simanumer << "\t" << kunni.heimilisfang << "\t" <<
-    vara.nafn << "\t" << vara.verd << endl;
+    myfile << pontun.numer << "\t" << pontun.stada << "\t" <<
+    kunni.nafn << "\t" << kunni.simanumer << "\t" << kunni.heimilisfang;
+    
+    for(vara vara: pontun.vorur) {
+        myfile << "\t" << vara.nafn << "\t" << vara.verd;
+    }
+    myfile << endl;
     myfile.close();
     return;
+}
+
+vector<pontun> lesa_allar_pantanir() {
+    if(pantanir_lesnar) {
+        return pantanir;
+    }
+    else {
+        pantanir_lesnar = true;
+    }
+    ifstream myfile;
+    myfile.open("pantanir.txt");
+    lesa_pantanir(myfile, baeta_vid_pontun_i_pantanir);
+    myfile.close();
+    return pantanir;
+}
+
+void yfirskrifa_pantanalista(vector<pontun> pantanir) {
+    ofstream myfile;
+    myfile.open("pantanir.txt", ios::trunc);
+    myfile.close();
+    for(pontun pontun: pantanir) {
+        vista_pontun(pontun);
+    }
 }
 
 #endif /* GAGNALAG_H */

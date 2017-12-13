@@ -23,4 +23,50 @@ void lesa_vorur(istream &inntak, void (*fall)(vara)) {
     }
 }
 
+void lesa_pantanir(istream &inntak, void (*fall)(pontun)) {
+    string line;
+    pontun pontun;
+    while(getline(inntak, line)) {
+        stringstream straumur(line);
+        string numer;
+        string stada;
+        straumur >> numer >> stada;
+        pontun.numer = numer;
+        pontun.stada = stada;
+        string nafn, simanumer, heimilisfang;
+        straumur >> nafn >> simanumer >> heimilisfang;
+        vidskiptavinur kunni;
+        kunni.nafn = nafn;
+        kunni.simanumer = simanumer;
+        kunni.heimilisfang = heimilisfang;
+        pontun.vidskiptavinur = kunni;
+        
+        pontun.vorur = vector<vara>();
+
+        while(straumur.rdbuf()->in_avail()) {
+            string vorunafn;
+            int voruverd;
+            straumur >> vorunafn >> voruverd;
+            vara vara;
+            vara.nafn = vorunafn;
+            vara.verd = voruverd;
+            pontun.vorur.push_back(vara);
+        }
+        
+        fall(pontun);
+    }
+}
+
+vector<pontun> merkja_pontun(vector<pontun> pantanir, string numer, string stada) {
+    // Hver thessara pantana er með númerið $numer?
+    // Breyta stöðu hennar í "tilbúin"
+    for(int i=0; i<pantanir.size(); i++) {
+        if(pantanir[i].numer == numer){
+            pantanir[i].stada = stada;
+            break;
+        }
+    }
+    return pantanir;
+}
+
 #endif /* lykkjur_h */
